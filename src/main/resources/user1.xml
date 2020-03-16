@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--使用context命名空间，通知spring扫描指定包下所有的Bean类，进行注解解析-->
+    <context:component-scan base-package="com.example.chapter04.user1"/>
+<!--使用context命名空间，在配置文件中开启相应的注解处理器-->
+    <!--    <context:annotation-config/>-->
+<!--分别定义三个bean实例-->
+<!--    <bean id="userDao" class="com.example.chapter04.user1.UserDaoImpl"/>-->
+<!--    <bean id="userService" class="com.example.chapter04.user1.UserServiceImpl"/>-->
+<!--    <bean id="userController" class="com.example.chapter04.user1.UserController"/>-->
+
+        <bean id="userDao" class="com.example.chapter04.user1.UserDaoImpl"/>
+        <bean id="userService" class="com.example.chapter04.user1.UserServiceImpl" autowire="byName"/>
+        <bean id="userController" class="com.example.chapter04.user1.UserController" autowire="byName"/>
+
+</beans>
